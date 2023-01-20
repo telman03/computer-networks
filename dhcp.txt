@@ -1,0 +1,121 @@
+First switch
+
+#en
+#conf t
+#hostname SwitchA
+#vlan 10
+#exit
+#vlan 20
+#exit
+#interface fastEthernet 0/1
+#switchport mode trunk
+#switchport trunk allowed vlan 10-30
+#exit
+#interface fastEthernet 0/2
+#switchport mode access
+# switchport access vlan 10
+#exit
+#interface fastEthernet 0/3
+#switchport mode access
+# switchport access vlan 10
+#exit
+#interface fastEthernet 0/4
+#switchport mode access
+# switchport access vlan 20
+#exit
+#interface fastEthernet 0/5
+#switchport mode access
+# switchport access vlan 20
+#exit
+#line vty 15
+#login local
+#exit
+#exit
+#wr
+
+
+
+
+First Router
+
+#en
+#conf t
+#hostname A
+#interface gigabitEthernet 0/0
+#ip address 10.0.0.1 255.255.255.252
+#no shutdown
+#exit
+#interface gigabitEthernet 0/1
+#no shutdown
+#exit
+#interface gigabitEthernet 0/1.10
+#ip address 192.168.1.1 255.255.255.0
+#encapsulation dot1Q 10
+#no shutdown
+#exit
+#interface gigabitEthernet 0/1.20
+#ip address 172.168.1.1 255.255.255.0
+#encapsulation dot1Q 20
+#no shutdown
+#exit
+#ip dhcp pool vlan10
+#network 192.168.1.0 255.255.255.0
+#default-router 192.168.1.1
+#dns-server 8.8.8.8
+#exit
+#ip dhcp pool vlan20
+#network 172.168.1.0 255.255.255.0
+#default-router 172.168.1.1
+#dns-server 8.8.8.8
+#exit
+#ip dhcp excluded-address 192.168.1.1 192.168.1.5
+#ip dhcp excluded-address 172.168.1.1 172.168.1.10
+#ip route 30.30.30.28 255.255.255.252 10.0.0.2
+
+
+
+
+
+Second Switch
+#en
+#conf t
+#hostname SwitchB
+#vlan 30
+#exit
+#interface fastEthernet 0/1
+#switchport mode trunk
+#switchport trunk allowed vlan 30
+#exit
+#interface fastEthernet 0/2
+#switchport mode access
+#switchport access vlan 30
+#exit
+#line vty 15
+#login local
+#exit
+#exit
+
+
+
+Second Router
+#en
+#conf t
+#hostname A
+#interface gigabitEthernet 0/0
+#ip address 10.0.0.2 255.255.255.252
+#no shutdown
+#exit
+#interface gigabitEthernet 0/1
+#no shutdown
+#interface gigabitEthernet 0/1.30
+#ip address 30.30.30.29 255.255.255.252
+##encapsulation dot1Q 30
+#no shutdown
+#ip dhcp pool vlan30
+#network 30.30.30.28 255.255.255.252
+#default-router 30.30.30.29
+#dns-server 8.8.8.8
+#exit
+#ip dhcp excluded-address  30.30.30.29
+#ip route 192.168.1.0 255.255.255.0 10.0.0.1
+#ip route 172.168.1.0 255.255.255.0 10.0.0.1
