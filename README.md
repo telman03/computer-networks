@@ -108,3 +108,6 @@
 #### Don`t forget !!!
 - Switch(config)# ip routing
 
+## Task 3
+![task 3 dhcp](https://github.com/telman03/computer-networks/blob/main/img/dhcp.png)
+- [DHCP commands](https://github.com/telman03/computer-networks/blob/main/dhcp.txt)
