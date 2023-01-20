@@ -62,7 +62,7 @@
 
 
 ## Task 2
-![task 2](https://github.com/telman03/computer-networks/blob/main/img/1.png)
+![task 2](https://github.com/telman03/computer-networks/blob/main/img/2.png)
 
 ### Commands
 - Switch> en
