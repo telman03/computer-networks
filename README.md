@@ -30,7 +30,7 @@
 - Switch(config-if)# exit
 - Switch(config)# interface fastEthernet 0/2
 - Switch(config-if)# switchport mode access
-- Switch(config-if)# switchport access vlan 20
+- Switch(config-if)# switchport access vlan 10
 - Switch(config-if)# exit 
 - Switch(config)# interface fastEthernet 0/3
 - Switch(config-if)# switchport mode access
