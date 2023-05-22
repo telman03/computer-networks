@@ -111,3 +111,26 @@
 ## Task 3
 ![task 3 dhcp](https://github.com/telman03/computer-networks/blob/main/img/dhcp.png)
 - [DHCP commands](https://github.com/telman03/computer-networks/blob/main/dhcp.txt)
+
+## Task 4
+![task 4 port security](https://github.com/telman03/computer-networks/assets/70106877/61a98bb8-4759-4743-a36d-f59b027b7b86)
+
+How to Configure Port Security in Cisco Packet Tracer |
+
+- Switch(config)#int fastEthernet 0/1
+- Switch(config-if)#switchport mode access 
+- Switch(config-if)#switchport port-security mac-address sticky 
+- Switch(config-if)#switchport port-security maximum 1
+- Switch(config-if)#switchport port-security violation shutdown 
+
+
+- Switch(config)#int fastEthernet 0/2
+- Switch(config-if)#switchport mode access 
+- Switch(config-if)#switchport port-security mac-address sticky 
+- Switch(config-if)#switchport port-security maximum 1
+- Switch(config-if)#switchport port-security violation shutdown 
+
+To see the :
+- Switch#show port-security 
+
+- Switch#show port-security interface fastEthernet 0/1
