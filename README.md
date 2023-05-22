@@ -130,7 +130,7 @@ How to Configure Port Security in Cisco Packet Tracer |
 - Switch(config-if)#switchport port-security maximum 1
 - Switch(config-if)#switchport port-security violation shutdown 
 
-To see the :
+To check :
 - Switch#show port-security 
 
 - Switch#show port-security interface fastEthernet 0/1
